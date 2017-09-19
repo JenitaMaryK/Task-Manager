@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Task Manager</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+	<div class="w3-container">
+
+		<div class="w3-card-4"
+			style="width: 23%; float: left; margin-right: 70px; margin-left: 70px; margin-top: 80px">
+			<header class="w3-container w3-blue">
+				<h1>
+					<center>TO-DO LIST</center>
+				</h1>
+			</header>
+
+			<div class="w3-container" style="float: left">
+				<input type="text" name="task">
+
+				<div style="float: right">
+					<button id="addBtn">ADD</button>
+				</div>
+				<ol id="todo"></ol>
+				<script>
+					$(document).ready(function() {
+						$('#addBtn').click(function() {
+							var toAdd = $('input[name=task]').val();
+							$('#todo').append('<li>' + toAdd + '</li>');
+						});
+						$('input').focus(function() {
+							$(this).val('');
+						});
+
+					});
+				</script>
+
+			</div>
+
+			<footer class="w3-container w3-blue">
+				<p></p>
+			</footer>
+		</div>
+
+		<div class="w3-card-4"
+			style="width: 23%; float: left; margin-right: 70px; margin-top: 80px">
+			<header class="w3-container w3-blue">
+				<h1>
+					<center>DOING</center>
+				</h1>
+			</header>
+
+			<div class="w3-container" style="float: left">
+				<input type="text" name="doing">
+				<div style="float: right">
+					<button id="addBtn1">ADD</button>
+				</div>
+				<ol id="doing"></ol>
+				<script>
+					$(document).ready(function() {
+						$('#addBtn1').click(function() {
+							var toAdd = $('input[name=doing]').val();
+							$('#doing').append('<li>' + toAdd + '</li>');
+						});
+						$('input').focus(function() {
+							$(this).val('');
+						});
+
+					});
+				</script>
+			</div>
+
+			<footer class="w3-container w3-blue">
+				<p></p>
+			</footer>
+		</div>
+
+		<div class="w3-card-4"
+			style="width: 23%; float: left; margin-right: 70px; margin-top: 80px">
+			<header class="w3-container w3-blue">
+				<h1>
+					<center>DONE</center>
+				</h1>
+			</header>
+
+			<div class="w3-container" style="float: left">
+				<input type="text" name="done">
+				<div style="float: right">
+					<div style="float: right">
+						<button id="addBtn2">ADD</button>
+					</div>
+					<ol id="done"></ol>
+					<script>
+						$(document).ready(function() {
+							$('#addBtn2').click(function() {
+								var toAdd = $('input[name=done]').val();
+								$('#done').append('<li>' + toAdd + '</li>');
+							});
+							$('input').focus(function() {
+								$(this).val('');
+							});
+
+						});
+					</script>
+				</div>
+			</div>
+
+			<footer class="w3-container w3-blue">
+				<p></p>
+			</footer>
+		</div>
+	</div>
+
+</body>
+</html>
