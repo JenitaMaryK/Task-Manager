@@ -9,6 +9,17 @@
 
 </head>
 <body>
+<style>
+ol {
+    list-style-type:none;
+    padding:0px;
+    margin:0px;
+}
+
+.selected {
+    background-color:#ccccb3;
+}
+</style>
 
 	<div class="w3-container">
 
@@ -28,16 +39,18 @@
 				</div>
 				<ol id="todo"></ol>
 				<script>
-					$(document).ready(function() {
+				$(document).ready(function() {
 						$('#addBtn').click(function() {
-							var toAdd = $('input[name=task]').val();
-							$('#todo').append('<li>' + toAdd + '</li>');
+						var toAdd = $('input[name=task]').val();
+						$('#todo').append('<li>' + toAdd+ '</li>');
 						});
 						$('input').focus(function() {
 							$(this).val('');
+					     });
+						$(document).on('dblclick','li',function() {
+							$('#doing').append(	$('#todo .selected').removeClass('selected'));
 						});
-
-					});
+				});
 				</script>
 
 			</div>
@@ -49,7 +62,7 @@
 
 		<div class="w3-card-4"
 			style="width: 23%; float: left; margin-right: 70px; margin-top: 80px">
-			<header class="w3-container w3-blue">
+			<header class="w3-container w3-grey">
 				<h1>
 					<center>DOING</center>
 				</h1>
@@ -62,27 +75,35 @@
 				</div>
 				<ol id="doing"></ol>
 				<script>
-					$(document).ready(function() {
-						$('#addBtn1').click(function() {
-							var toAdd = $('input[name=doing]').val();
-							$('#doing').append('<li>' + toAdd + '</li>');
+				
+			$(document).ready(function() {
+							$('#addBtn1').click(function() {
+							var toAdd1 = $('input[name=doing]').val();
+							$('#doing') .append('<li>'+ toAdd1 + '</li>');
 						});
-						$('input').focus(function() {
+					$('input').focus(function() {
 							$(this).val('');
 						});
-
-					});
+					$(document).on('click', 'li', function() {
+						   $(this).toggleClass('selected');
+						});
+  				   $(document).on('dblclick','li',function() {
+							
+							$('#done').append($('#doing .selected').removeClass( 'selected'));
+							
+						});
+			});
 				</script>
 			</div>
 
-			<footer class="w3-container w3-blue">
+			<footer class="w3-container w3-grey">
 				<p></p>
 			</footer>
 		</div>
 
 		<div class="w3-card-4"
-			style="width: 23%; float: left; margin-right: 70px; margin-top: 80px">
-			<header class="w3-container w3-blue">
+			style="width: 23%; float: left; margin-left: 70px; margin-top: 80px">
+			<header class="w3-container w3-red">
 				<h1>
 					<center>DONE</center>
 				</h1>
@@ -91,30 +112,34 @@
 			<div class="w3-container" style="float: left">
 				<input type="text" name="done">
 				<div style="float: right">
-					<div style="float: right">
-						<button id="addBtn2">ADD</button>
-					</div>
-					<ol id="done"></ol>
-					<script>
-						$(document).ready(function() {
-							$('#addBtn2').click(function() {
-								var toAdd = $('input[name=done]').val();
-								$('#done').append('<li>' + toAdd + '</li>');
-							});
-							$('input').focus(function() {
-								$(this).val('');
-							});
+					<button id="addBtn2">ADD</button>
+				</div>
+				<ol id="done"></ol>
+				<script>
+					$(document).ready(function() {
+						$('#addBtn2').click(function() {
+							var toAdd2 = $('input[name=done]').val();
+							$('#done').append('<li>' + toAdd2 + '</li>');
+						});
+						$('input').focus(function() {
+							$(this).val('');
+						});
+						$(document).on('dblclick', 'li', function() {
+							$('#done .selected').remove();
 
 						});
-					</script>
-				</div>
+
+					});
+				</script>
 			</div>
 
-			<footer class="w3-container w3-blue">
+
+			<footer class="w3-container w3-red">
 				<p></p>
 			</footer>
 		</div>
 	</div>
+
 
 </body>
 </html>
